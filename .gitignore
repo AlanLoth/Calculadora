@@ -10,3 +10,234 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+package cosas;
+/**
+ *
+ * @author Loth
+ */
+public abstract class calcu{
+	public abstract void calcu1();
+	public abstract void calcu2();
+	public abstract void calcu3();
+	public abstract void calcu4();
+	public abstract void calcu5();
+	public abstract void calcu6();
+	public abstract void calcu7();
+	public abstract void calcu8();
+}
+package cosas;
+import java.util.Scanner;
+/**
+ *
+ * @author Loth
+ */
+public class ns extends calcu {
+
+    @Override
+    public void calcu1() {
+        Scanner sc = new Scanner (System.in);
+        int c = 0;
+        float x = 0f;
+        float y = 0f;
+        System.out.println("SUMA\n\nEscriba el numero de valores a sumar");
+        c = sc.nextInt();
+        do{
+            if (c > 1){
+                for (int i = 0;i < c;i++){
+                    System.out.println("Ingrese un numero a sumar");
+                    x = sc.nextFloat();
+                    y = x + y;
+                    System.out.println(y);
+                }
+                System.out.println("La suma es: " + y);
+                break;
+            }
+            else{
+                System.out.println("por lo menos se deven sumar 2 numeros");
+            }
+        }while(c < 2);
+    }
+
+    @Override
+    public void calcu2() {
+        Scanner sc = new Scanner (System.in);
+	float x = 0f;
+	float y = 0f;
+	System.out.println("RESTA\n\n");
+	System.out.println("Ingrese el minuendo");
+	x = sc.nextFloat();
+	System.out.println("Ingresa el sustraendo");
+	y = sc.nextFloat();
+	y = x - y;
+	System.out.println("El resultado es: " + y);
+    }
+
+    @Override
+    public void calcu3() {
+        Scanner sc = new Scanner (System.in);
+	int c = 0;
+	float x = 0f;
+	float y = 0f;
+	System.out.println("MULTIPLICACION\n\nEscriba el numero de valores a multiplicar");
+	c = sc.nextInt();
+	do{
+            if (c > 1){
+                y++;
+		for (int i = 0;i < c;i++){
+                    System.out.println("Ingrese un numero a multiplicar");
+                    x = sc.nextFloat();
+                    y = x * y;
+                    System.out.println(y);
+		}
+		break;
+            }
+            else{
+		System.out.println("por lo menos se deven multiplicar 2 numeros");
+            }
+	}while(c < 2);
+    }
+
+    @Override
+    public void calcu4() {
+        Scanner sc = new Scanner (System.in);
+	float x = 0f;
+	float y = 0f;
+	System.out.println("DIVICION\n\n");
+	System.out.println("Ingrese el dividendo");
+	x = sc.nextFloat();
+	System.out.println("Ingresa el divisor");
+	y = sc.nextFloat();
+	y = x / y;
+	System.out.println("El resultado es: " + y);
+    }
+
+    @Override
+    public void calcu5() {
+        Scanner sc = new Scanner (System.in);
+	float x = 0f;
+	float y = 0f;
+	int a = 0;
+	System.out.println("ELEVAR\n\n");
+	System.out.println("Ingrese el coeficiente");
+	x = sc.nextFloat();
+	System.out.println("Ingresa el exponente");
+	a = sc.nextInt();
+	if (a == 0){
+            System.out.println("El resultado es: 1");
+	}
+	else{
+            y++;
+            for (int i = 0;i < a;i++){
+                y = x * y;
+		System.out.println(y);
+            }
+            System.out.println("El resultado es: " + y);
+	}
+    }
+
+    @Override
+    public void calcu6() {
+        Scanner sc = new Scanner (System.in);
+	float x = 0f;
+	float y = 0f;
+	System.out.println("FACTORIAL\n\n");
+	System.out.println("Ingrese el numero");
+	x = sc.nextFloat();
+	if (x == 0){
+            System.out.println("El resultado es: 1");
+	}
+	else{
+            y++;
+            for (int i = 0;i < x;i++){
+		y = x * y;
+		x--;
+            }
+            System.out.println("El resultado es: " + y);
+        }
+    }
+
+    @Override
+    public void calcu7() {
+        Scanner sc = new Scanner (System.in);
+	float x = 0f;
+	System.out.println("DERIVAR\n\n");
+	System.out.println("Ingrese el numero");
+	x = sc.nextFloat();
+	System.out.println("El resultado es: 0");
+    }
+
+    @Override
+    public void calcu8() {
+        Scanner sc = new Scanner (System.in);
+        float x = 0f;
+	System.out.println("INTEGRER\n\n");
+	System.out.println("Ingrese el numero");
+	x = sc.nextFloat();
+	System.out.println("El resultado es: " + x + "x");
+    }
+    
+}
+package cosas;
+import java.util.Scanner;
+/**
+ *
+ * @author Loth
+ */
+public class cosa {
+    int eleccion;
+    public cosa() {
+        this.eleccion = 0;
+    }
+    
+    public void pregunta (){
+        Scanner sc = new Scanner (System.in);
+        System.out.println("Calculadora\n\n¿Que operacion decea realizar?\n\n1-. Suma");
+        System.out.println("2-. Resta\n3-. Multiplicacion\n4-. Divicion\n5-. Elevar\n6-. Factorial");
+        System.out.println("7-. Derivar\n8-. Integrar\n9-. Cancelar\n\n");
+        eleccion = sc.nextInt();
+    }
+    public void calcula (){
+        calcu ca = new ns();
+        switch (eleccion){
+            case 1:
+		ca.calcu1();
+                break;
+            case 2:
+		ca.calcu2();
+                break;
+            case 3:
+		ca.calcu3();
+                break;
+            case 4:
+		ca.calcu4();
+                break;
+            case 5:
+		ca.calcu5();
+                break;
+            case 6:
+		ca.calcu6();
+                break;
+            case 7:
+		ca.calcu7();
+                break;
+            case 8:
+		ca.calcu8();
+                break;
+            case 9:
+                break;
+        }
+    }
+}
+package cosas;
+/**
+ *
+ * @author Loth
+ */
+public class Main {
+    public static void main(String[] args) {
+        cosa cs = new cosa();
+        cs.pregunta();
+        cs.calcula();
+    }
+    
+}
